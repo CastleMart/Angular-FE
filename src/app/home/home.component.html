@@ -1,15 +1,5 @@
 
 <main class="grid-fluid">
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
-    <app-tarjeta></app-tarjeta>
+    <app-tarjeta *ngFor="let personaje of personajes" [personaje]="personaje"></app-tarjeta>
+    
 </main>
