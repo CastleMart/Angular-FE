@@ -1,0 +1,30 @@
+<h1>Editar Personaje</h1>
+
+<form (ngSubmit)="mandarDatos()">
+
+    <div>
+        <mat-form-field >
+            <mat-label>Nombre</mat-label>
+            <input matInput value="{{nombre}}">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field >
+            <mat-label>Fuerza</mat-label>
+            <input matInput value="{{fuerza}}">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field >
+            <mat-label>Defensa</mat-label>
+            <input matInput  value="{{defensa}}">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field >
+            <mat-label>URL Imagen</mat-label>
+            <input matInput value="{{img}}">
+        </mat-form-field>
+    </div>
+</form>
+

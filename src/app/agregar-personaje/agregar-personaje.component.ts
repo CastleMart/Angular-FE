@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Personaje } from '../services/data.service';
 
 @Component({
   selector: 'app-agregar-personaje',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./agregar-personaje.component.scss']
 })
 export class AgregarPersonajeComponent {
+  @Input() personaje!: Personaje;
 
+  mandarDatos(){
+
+  }
 }
+
