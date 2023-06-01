@@ -1,13 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 
 export interface Personaje {
-  idPersonaje:string;
-  Nombre:string;
-  Fuerza:string;
-  Defenza:string;
-  Img: string;
+  idPersonaje:string|null;
+  Nombre:string|null;
+  Fuerza:string|null;
+  Defenza:string|null;
+  Img: string|null;
 }
 
 
@@ -19,7 +20,7 @@ export class DataService {
   constructor( private readonly http:HttpClient) { }
 
   crearPersonaje(personaje:Personaje): Observable<Personaje>{
-    const body = { Nombre:personaje, Fuerza:personaje,Defenza:personaje,Img:personaje }
+    const body = { idPersonaje: personaje.idPersonaje,Nombre:personaje.Nombre, Fuerza:personaje.Fuerza,Defenza:personaje.Defenza,Img:personaje.Img }
     return this.http.post<Personaje>(this.API, body)
   }
 
@@ -27,9 +28,27 @@ export class DataService {
     return this.http.get<Personaje[]>(this.API);
   }
 
-  actualizarPersonaje(personaje: Personaje): Observable<void>{
-    const body = {idPersonaje: personaje.idPersonaje ,Nombre: personaje.Nombre, Fuerza:personaje.Fuerza, Defensa:personaje.Defenza, Img : personaje.Img};
-    return this.http.put<void>(this.API,body);
+  actualizarPersonaje(personaje: Personaje): Observable<any>{
+    const body = {idPersonaje: personaje.idPersonaje ,Nombre: personaje.Nombre, Fuerza:personaje.Fuerza, Defenza:personaje.Defenza, Img : personaje.Img};
+    
+    
+    console.log(body)
+    console.log(this.API)
+  
+    const httpOptions = {
+      headers: new HttpHeaders({ 
+        'Access-Control-Allow-Origin':'*',
+        'Authorization':'authkey',
+        'userid':'1'
+      })
+    };
+
+    
+    return this.http.put<any>(this.API,body, httpOptions)
+
+    //let respuesta =  this.http.put(this.API,body);
+    //console.log(respuesta)
+    //return respuesta
   }
 
   borrarPersonaje(id: String):  Observable<void>{

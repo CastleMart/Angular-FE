@@ -1,30 +1,31 @@
 <h1>Editar Personaje</h1>
 
-<form (ngSubmit)="mandarDatos()">
+<form (ngSubmit)="mandarDatos(valoresActualizados.value)" #valoresActualizados = "ngForm">
 
     <div>
         <mat-form-field >
             <mat-label>Nombre</mat-label>
-            <input matInput value="{{nombre}}">
+            <input matInput name="nombre" value="{{nombre}}" [(ngModel)]="nombre">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field >
             <mat-label>Fuerza</mat-label>
-            <input matInput value="{{fuerza}}">
+            <input matInput name = "fuerza" value="{{fuerza}}" [(ngModel)]="fuerza">
         </mat-form-field>
     </div>
     <div>
         <mat-form-field >
             <mat-label>Defensa</mat-label>
-            <input matInput  value="{{defensa}}">
+            <input matInput name = "defensa" value="{{defensa}}" [(ngModel)]="defensa" >
         </mat-form-field>
     </div>
     <div>
         <mat-form-field >
             <mat-label>URL Imagen</mat-label>
-            <input matInput value="{{img}}">
+            <input matInput name = "img" value="{{img}}" [(ngModel)]="img">
         </mat-form-field>
     </div>
+    <button mat-stroked-button color="primary" >Guardar Cambios</button>
 </form>
 

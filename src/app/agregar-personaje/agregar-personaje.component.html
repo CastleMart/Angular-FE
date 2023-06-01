@@ -1,37 +1,31 @@
 <h1>Agregar Personaje</h1>
 
-<form (ngSubmit)="mandarDatos()">
+<form (ngSubmit)="mandarDatos(valoresActualizados.value)" #valoresActualizados = "ngForm">
 
     <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Lucina</mat-label>
-            <input matInput placeholder="Nombre">
+        <mat-form-field >
+            <mat-label>Nombre</mat-label>
+            <input matInput name="nombre" [(ngModel)]="nombre">
         </mat-form-field>
     </div>
     <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Lucina</mat-label>
-            <input matInput placeholder="Nombre">
+        <mat-form-field >
+            <mat-label>Fuerza</mat-label>
+            <input matInput name = "fuerza"  [(ngModel)]="fuerza">
         </mat-form-field>
     </div>
     <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Lucina</mat-label>
-            <input matInput placeholder="Nombre">
+        <mat-form-field >
+            <mat-label>Defensa</mat-label>
+            <input matInput name = "defensa"  [(ngModel)]="defensa" >
         </mat-form-field>
     </div>
     <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Lucina</mat-label>
-            <input matInput placeholder="Nombre">
-        </mat-form-field>
-    </div> 
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Lucina</mat-label>
-            <input matInput placeholder="Nombre">
+        <mat-form-field >
+            <mat-label>URL Imagen</mat-label>
+            <input matInput name = "img"  [(ngModel)]="img">
         </mat-form-field>
     </div>
+    <button mat-stroked-button color="primary" >Guardar Cambios</button>
 </form>
-
 

@@ -9,4 +9,5 @@ import { Personaje } from '../services/data.service';
 
 export class TarjetaComponent {
  @Input() personaje!: Personaje;
+ 
 }
