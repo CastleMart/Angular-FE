@@ -1,26 +1,12 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
 html{
     text-align:center;
     font-size: 18px;
 
 }
 
-a{
-    text-decoration: none;
-    font-size: 30px;
-}
-
-.grid-fluid{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    text-align: center;
-}
-.loader{
-    display: block;
-    margin: auto;
-}
-
-figure{
-    border: solid black;
-    background-color: azure;
-    padding: 10px;
+header{
+    margin: 30px;
 }

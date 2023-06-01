@@ -1,8 +1,20 @@
-<figure>
-    <h3>{{personaje.Nombre}}</h3>
-    <img src={{personaje.Img}} alt="">
-    <figcaption><b>Fuerza:</b> {{personaje.Fuerza}} <br> <b>Defenza: </b> {{personaje.Defenza}}</figcaption>
-    
-    <button mat-stroked-button color="primary"  [routerLink]="['/editar-personaje', personaje]">Editar</button>
-    <button mat-stroked-button color="warn">Eliminar</button>
-</figure>
+
+
+<mat-card class="card">
+    <mat-card-header>
+      
+      <mat-card-title>{{personaje.Nombre}}</mat-card-title>
+      
+    </mat-card-header>
+    <img mat-card-image src={{personaje.Img}} >
+    <mat-card-content class="contenido-card">
+      <p>
+        <b>Fuerza:</b> {{personaje.Fuerza}} <br> <b>Defenza: </b> {{personaje.Defenza}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-stroked-button color="primary"  [routerLink]="['/editar-personaje', personaje]">Editar</button>
+        <button mat-stroked-button color="warn" (click)="clickDelete()">Eliminar</button>
+    </mat-card-actions>
+</mat-card>
+  

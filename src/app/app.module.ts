@@ -13,6 +13,11 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { EditarPersonajeComponent } from './editar-personaje/editar-personaje.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule, matDialogAnimations} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 
 @NgModule({
   declarations: [
@@ -20,7 +25,7 @@ import { EditarPersonajeComponent } from './editar-personaje/editar-personaje.co
     TarjetaComponent,
     AgregarPersonajeComponent,
     HomeComponent,
-    EditarPersonajeComponent
+    EditarPersonajeComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,8 +35,12 @@ import { EditarPersonajeComponent } from './editar-personaje/editar-personaje.co
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatDialogModule,
+    MatPaginatorModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

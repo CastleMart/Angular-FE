@@ -21,6 +21,8 @@ export class DataService {
 
   crearPersonaje(personaje:Personaje): Observable<Personaje>{
     const body = { idPersonaje: personaje.idPersonaje,Nombre:personaje.Nombre, Fuerza:personaje.Fuerza,Defenza:personaje.Defenza,Img:personaje.Img }
+
+    //console.log("body",body)
     return this.http.post<Personaje>(this.API, body)
   }
 
@@ -33,25 +35,30 @@ export class DataService {
     
     
     console.log(body)
-    console.log(this.API)
+    
   
     const httpOptions = {
       headers: new HttpHeaders({ 
-        'Access-Control-Allow-Origin':'*',
-        'Authorization':'authkey',
-        'userid':'1'
+        
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Methods': '*'
+      
       })
     };
 
     
-    return this.http.put<any>(this.API,body, httpOptions)
+    return this.http.put<any>(this.API,body)
 
     //let respuesta =  this.http.put(this.API,body);
     //console.log(respuesta)
     //return respuesta
   }
 
-  borrarPersonaje(id: String):  Observable<void>{
-    return this.http.delete<void>(`${this.API}/${id}`)
+  borrarPersonaje(id: String|null):  Observable<void>{
+    
+    console.log(id);
+    
+    return this.http.delete<void>(`${this.API}/${id}` );
   }
 }
