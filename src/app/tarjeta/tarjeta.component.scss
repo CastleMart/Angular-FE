@@ -9,21 +9,27 @@ a{
     margin: auto;
 }
 
-.card{
+.card {
     border: solid black;
     background-color: lightblue;
-    width: auto;
-    height: auto;
+    width: 250px;
+    height: 400px;
     padding: 10px;
-    margin: 15px;
-}
-
-.contenido-card{
-    
-}
-
-img{
-    max-width: auto;
-    height: auto;
-
-}
+    margin: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contenido-card {
+    margin-top: auto;
+  }
+  
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+  }
+  

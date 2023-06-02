@@ -1,10 +1,27 @@
 
-<mat-paginator [length]="personajes.length"
-              [pageSize]="page_size"
-              [pageSizeOptions]="[5, 10]"
-              (page)="handlePage($event)">
-        </mat-paginator>
-<div class="grid-fluid">
-    <app-tarjeta *ngFor="let personaje of personajes | paginate: page_size:page_number" [personaje]="personaje"></app-tarjeta>
-    
+<div class="input-button-container">
+    <input type="text" name="filtroPost" placeholder="Buscar...." [(ngModel)] = "filtrarPost"  (input)="setIsSearching(filtrarPost)" >
+    <button  mat-flat-button color="primary" (click)="abrirDialogo()">Agregar Personaje</button>
 </div>
+
+
+
+
+<ng-container *ngIf="!isSearching">
+    <mat-paginator [length]="personajes.length"
+                [pageSize]="page_size"
+                [pageSizeOptions]="[3, 5, 8]"
+                (page)="handlePage($event)">
+    </mat-paginator>
+</ng-container>
+
+<div class="grid-fluid">
+    
+    <ng-container *ngIf="!isSearching; else noPagination">
+      <app-tarjeta *ngFor="let personaje of personajes | filter:filtrarPost | paginate: page_size:page_number" [personaje]="personaje"></app-tarjeta>
+    </ng-container>
+    <ng-template #noPagination>
+      <app-tarjeta *ngFor="let personaje of personajes | filter:filtrarPost" [personaje]="personaje"></app-tarjeta>
+    </ng-template>
+  </div>
+ 

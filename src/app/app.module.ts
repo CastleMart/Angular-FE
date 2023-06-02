@@ -17,6 +17,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule, matDialogAnimations} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -28,6 +29,7 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     HomeComponent,
     EditarPersonajeComponent,
     PaginatePipe,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

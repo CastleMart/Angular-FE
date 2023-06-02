@@ -13,8 +13,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AgregarPersonajeComponent {
 
    
-  id:string|null = '';
-  nombre:string|null = '';
+  id:string = '';
+  nombre:string = '';
   fuerza:string|null = '';
   defensa:string|null = '';
   img:string|null = '';

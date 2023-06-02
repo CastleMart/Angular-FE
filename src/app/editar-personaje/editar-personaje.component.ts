@@ -12,8 +12,8 @@ export class EditarPersonajeComponent {
 
   personaje: Personaje | undefined;
   
-  id:string|null = '';
-  nombre:string|null = '';
+  id:string = '';
+  nombre:string = '';
   fuerza:string|null = '';
   defensa:string|null = '';
   img:string|null = '';
@@ -27,11 +27,18 @@ export class EditarPersonajeComponent {
     let Defenza = this.route.snapshot.paramMap.get("Defenza");
     let Img = this.route.snapshot.paramMap.get("Img");
     
-    this.nombre = Nombre;
+    if (Nombre !== null) {
+      this.nombre = Nombre;
+    }
+    if (Id !== null) {
+        this.id = Id;
+    }
+
+    
     this.fuerza = Fuerza;
     this.defensa = Defenza;
     this.img = Img;
-    this.id = Id;
+    
 
     
 

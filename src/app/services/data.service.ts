@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 
 export interface Personaje {
-  idPersonaje:string|null;
-  Nombre:string|null;
+  idPersonaje:string;
+  Nombre:string;
   Fuerza:string|null;
   Defenza:string|null;
   Img: string|null;
@@ -55,7 +55,7 @@ export class DataService {
     //return respuesta
   }
 
-  borrarPersonaje(id: String|null):  Observable<void>{
+  borrarPersonaje(id: String):  Observable<void>{
     
     console.log(id);
     this.API += "/" + id;
