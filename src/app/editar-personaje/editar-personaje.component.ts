@@ -34,14 +34,10 @@ export class EditarPersonajeComponent {
         this.id = Id;
     }
 
-    
     this.fuerza = Fuerza;
     this.defensa = Defenza;
     this.img = Img;
     
-
-    
-
     console.log(Nombre);
     console.log(Fuerza);
     //let idMascota = this.route.snapshot.paramMap.get("id");

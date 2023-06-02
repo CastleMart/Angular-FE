@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   filtrarPost = ''
   page_size: number = 5;
   page_number: number = 2;
-  name = 'hola'
+  id = ''
+  
 
   isSearching = false;
   
@@ -24,9 +25,11 @@ export class HomeComponent implements OnInit {
   
 
   abrirDialogo(){
+    let idMAX = Math.max(...this.personajes.map(personaje => parseInt(personaje.idPersonaje)));
+    this.id = idMAX.toString();
     const dialogoRef = this.dialogo.open(AgregarPersonajeComponent,{
       width: '350px',
-      data: {name: this.name}});
+      data: {id: this.id + 1}});
 
       dialogoRef.afterClosed().subscribe(res =>{console.log(res);})
   }
@@ -36,7 +39,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.dataSVc.obtenerPersonajes().subscribe(per =>{this.personajes = [...per]})
     console.log(this.personajes)
-    console.log();
+    
+    //console.log("idMax", maxId);
+    this.page_number = 1
   }
 
 

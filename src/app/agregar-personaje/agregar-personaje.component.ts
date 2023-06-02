@@ -21,16 +21,19 @@ export class AgregarPersonajeComponent {
 
   //@Input() personaje!: Personaje;
   personaje?:Personaje;
+  
 
   constructor(
     private readonly dataSVc: DataService,
     public dialogoRef: MatDialogRef<AgregarPersonajeComponent>, 
-    @Inject(MAT_DIALOG_DATA){}){}
+    @Inject(MAT_DIALOG_DATA)public data: any){this.id = data.id; console.log(this.id)}
 
+    
 
 
   mandarDatos(valores:any){
-    this.personaje = {idPersonaje:'15', Nombre: this.nombre, Fuerza: this.fuerza, Defenza: this.defensa, Img: this.img};
+    console.log(this.id)
+    this.personaje = {idPersonaje:this.id + 1, Nombre: this.nombre, Fuerza: this.fuerza, Defenza: this.defensa, Img: this.img};
     this.dataSVc.crearPersonaje(this.personaje).subscribe((response) => {
       console.log(response);
     },
