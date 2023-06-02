@@ -33,7 +33,7 @@ export class AgregarPersonajeComponent {
 
   mandarDatos(valores:any){
     console.log(this.id)
-    this.personaje = {idPersonaje:this.id + 1, Nombre: this.nombre, Fuerza: this.fuerza, Defenza: this.defensa, Img: this.img};
+    this.personaje = {idPersonaje:this.id, Nombre: this.nombre, Fuerza: this.fuerza, Defenza: this.defensa, Img: this.img};
     this.dataSVc.crearPersonaje(this.personaje).subscribe((response) => {
       console.log(response);
     },
