@@ -25,11 +25,11 @@ export class HomeComponent implements OnInit {
   
 
   abrirDialogo(){
-    let idMAX = Math.max(...this.personajes.map(personaje => parseInt(personaje.idPersonaje)));
+    let idMAX = Math.max(...this.personajes.map(personaje => parseInt(personaje.idPersonaje))) + 1;
     this.id = idMAX.toString();
     const dialogoRef = this.dialogo.open(AgregarPersonajeComponent,{
       width: '350px',
-      data: {id: this.id + 1}});
+      data: {id: this.id}});
 
       dialogoRef.afterClosed().subscribe(res =>{console.log(res);})
   }
