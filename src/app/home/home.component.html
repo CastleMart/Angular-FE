@@ -1,5 +1,10 @@
 
-<main class="grid-fluid">
-    <app-tarjeta *ngFor="let personaje of personajes" [personaje]="personaje"></app-tarjeta>
+<mat-paginator [length]="personajes.length"
+              [pageSize]="page_size"
+              [pageSizeOptions]="[5, 10]"
+              (page)="handlePage($event)">
+        </mat-paginator>
+<div class="grid-fluid">
+    <app-tarjeta *ngFor="let personaje of personajes | paginate: page_size:page_number" [personaje]="personaje"></app-tarjeta>
     
-</main>
+</div>

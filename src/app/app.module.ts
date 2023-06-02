@@ -16,6 +16,7 @@ import { EditarPersonajeComponent } from './editar-personaje/editar-personaje.co
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule, matDialogAnimations} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { PaginatePipe } from './pipes/paginate.pipe';
 
 
 
@@ -26,6 +27,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     AgregarPersonajeComponent,
     HomeComponent,
     EditarPersonajeComponent,
+    PaginatePipe,
   ],
   imports: [
     BrowserModule,

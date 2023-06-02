@@ -16,7 +16,7 @@ export interface Personaje {
   providedIn: 'root'
 })
 export class DataService {
-  private readonly API = 'https://rc4w8ry6ye.execute-api.us-east-1.amazonaws.com/test';
+  private  API = 'https://rc4w8ry6ye.execute-api.us-east-1.amazonaws.com/test';
   constructor( private readonly http:HttpClient) { }
 
   crearPersonaje(personaje:Personaje): Observable<Personaje>{
@@ -58,7 +58,8 @@ export class DataService {
   borrarPersonaje(id: String|null):  Observable<void>{
     
     console.log(id);
+    this.API += "/" + id;
     
-    return this.http.delete<void>(`${this.API}/${id}` );
+    return this.http.delete<void>(this.API);
   }
 }
