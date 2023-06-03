@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component , Inject} from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // Importar
 import { Personaje } from '../services/data.service';
 import { DataService } from '../services/data.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-editar-personaje',
@@ -18,30 +19,22 @@ export class EditarPersonajeComponent {
   defensa:string|null = '';
   img:string|null = '';
   
-  constructor(private route: ActivatedRoute, private readonly dataSVc: DataService) { } // <-- inyectar
-  ngOnInit() {
-    // Leer
-    let Id = this.route.snapshot.paramMap.get("idPersonaje");
-    let Nombre = this.route.snapshot.paramMap.get("Nombre");
-    let Fuerza = this.route.snapshot.paramMap.get("Fuerza");
-    let Defenza = this.route.snapshot.paramMap.get("Defenza");
-    let Img = this.route.snapshot.paramMap.get("Img");
-    
-    if (Nombre !== null) {
-      this.nombre = Nombre;
-    }
-    if (Id !== null) {
-        this.id = Id;
-    }
+  constructor(private route: ActivatedRoute, private readonly dataSVc: DataService, public dialogoRef: MatDialogRef<EditarPersonajeComponent>, 
+    @Inject(MAT_DIALOG_DATA)public data: any) {
+      this.id = data.personaje.idPersonaje;  
+      this.nombre = data.personaje.Nombre;
+      this.fuerza = data.personaje.Fuerza;
+      this.defensa = data.personaje.Defenza;
+      this.img = data.personaje.Img;
+    } // <-- inyectar
 
-    this.fuerza = Fuerza;
-    this.defensa = Defenza;
-    this.img = Img;
-    
-    console.log(Nombre);
-    console.log(Fuerza);
-    //let idMascota = this.route.snapshot.paramMap.get("id");
+
+  ngOnInit() {
+  
   }
+
+  
+
 
   mandarDatos(values:any){
     
@@ -54,6 +47,14 @@ export class EditarPersonajeComponent {
         console.log(error);
       });
   }
+
+
+
+  onClickNO():void{
+    this.dialogoRef.close
+  }
+
+  
 }
 
 

@@ -10,7 +10,7 @@
 <ng-container *ngIf="!isSearching">
     <mat-paginator [length]="personajes.length"
                 [pageSize]="page_size"
-                [pageSizeOptions]="[3, 5, 8]"
+                [pageSizeOptions]="[3, 5, 10]"
                 (page)="handlePage($event)">
     </mat-paginator>
 </ng-container>

@@ -2,6 +2,7 @@ import { Component, Input, Inject } from '@angular/core';
 import { Personaje } from '../services/data.service';
 import { DataService } from '../services/data.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { EditarPersonajeComponent } from '../editar-personaje/editar-personaje.component';
 
 @Component({
   selector: 'app-agregar-personaje',
@@ -25,7 +26,7 @@ export class AgregarPersonajeComponent {
 
   constructor(
     private readonly dataSVc: DataService,
-    public dialogoRef: MatDialogRef<AgregarPersonajeComponent>, 
+    public dialogoRef: MatDialogRef<EditarPersonajeComponent>, 
     @Inject(MAT_DIALOG_DATA)public data: any){this.id = data.id; console.log(this.id)}
 
     

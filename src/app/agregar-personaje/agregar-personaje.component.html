@@ -2,6 +2,7 @@
 
 <div mat-dialog-content class="formulario">
     
+    
     <form (ngSubmit)="mandarDatos(valoresActualizados.value)" #valoresActualizados = "ngForm">
         <div mat-dialog-title>Agregar Personaje</div>
         <div>
@@ -29,7 +30,7 @@
             </mat-form-field>
         </div>
         <div mat-dialog-actions >
-            <button mat-stroked-button color="primary" [mat-dialog-close]="true" (click)="mandarDatos(valoresActualizados.value)" >Guardar Cambios</button>
+            <button mat-stroked-button color="primary" [mat-dialog-close]="true" (click)="mandarDatos(valoresActualizados.value)" >Ingresar Personaje</button>
         </div>
     </form>
 

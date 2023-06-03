@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
       width: '350px',
       data: {id: this.id}});
 
-      dialogoRef.afterClosed().subscribe(res =>{console.log(res);})
+      dialogoRef.afterClosed().subscribe(res =>{console.log(res); window.location.reload();})
   }
 
 

@@ -12,7 +12,9 @@ a{
 .grid-fluid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    text-align: center;
+    
+    align-content: center;
+    margin: auto;
 }
 .loader{
     display: block;
