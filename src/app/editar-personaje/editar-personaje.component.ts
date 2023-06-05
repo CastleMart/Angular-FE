@@ -12,15 +12,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class EditarPersonajeComponent {
 
   personaje: Personaje | undefined;
-  
   id:string = '';
   nombre:string = '';
   fuerza:string|null = '';
   defensa:string|null = '';
   img:string|null = '';
   
-  constructor(private route: ActivatedRoute, private readonly dataSVc: DataService, public dialogoRef: MatDialogRef<EditarPersonajeComponent>, 
-    @Inject(MAT_DIALOG_DATA)public data: any) {
+  constructor(private route: ActivatedRoute, private readonly dataSVc: DataService, 
+              public dialogoRef: MatDialogRef<EditarPersonajeComponent>, 
+              @Inject(MAT_DIALOG_DATA)public data: any) {
       this.id = data.personaje.idPersonaje;  
       this.nombre = data.personaje.Nombre;
       this.fuerza = data.personaje.Fuerza;
@@ -33,13 +33,9 @@ export class EditarPersonajeComponent {
   
   }
 
-  
-
-
   mandarDatos(values:any){
     
     this.personaje = {idPersonaje:this.id, Nombre: this.nombre, Fuerza: this.fuerza, Defenza: this.defensa, Img: this.img};
-    //console.log(this.personaje)
     this.dataSVc.actualizarPersonaje(this.personaje).subscribe((response) => {
         console.log(response);
       },
@@ -48,13 +44,10 @@ export class EditarPersonajeComponent {
       });
   }
 
-
-
   onClickNO():void{
     this.dialogoRef.close
   }
 
-  
 }
 
 

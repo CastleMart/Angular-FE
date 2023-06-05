@@ -10,14 +10,7 @@ import { AgregarPersonajeComponent } from './agregar-personaje/agregar-personaje
 })
 export class AppComponent {
   title = 'Personajes Fire emblem';
-  name = 'hola'
-  constructor(public dialogo: MatDialog){}
+  
+  constructor(){}
 
-  abrirDialogo(){
-    const dialogoRef = this.dialogo.open(AgregarPersonajeComponent,{
-      width: '350px',
-      data: {name: this.name}});
-
-      dialogoRef.afterClosed().subscribe(res =>{console.log(res);})
-  }
 }

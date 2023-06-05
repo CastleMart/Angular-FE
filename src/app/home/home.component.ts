@@ -15,15 +15,12 @@ export class HomeComponent implements OnInit {
   page_size: number = 5;
   page_number: number = 2;
   id = ''
-  
-
   isSearching = false;
   
   
   constructor(private readonly dataSVc: DataService, public dialogo: MatDialog){}
 
   
-
   abrirDialogo(){
     let idMAX = Math.max(...this.personajes.map(personaje => parseInt(personaje.idPersonaje))) + 1;
     this.id = idMAX.toString();
@@ -31,34 +28,28 @@ export class HomeComponent implements OnInit {
       width: '350px',
       data: {id: this.id}});
 
-      dialogoRef.afterClosed().subscribe(res =>{console.log(res); window.location.reload();})
+      dialogoRef.afterClosed().subscribe(res =>{
+        if(res){
+          window.location.reload();
+        }
+      })
   }
-
-
 
   ngOnInit(): void {
     this.dataSVc.obtenerPersonajes().subscribe(per =>{this.personajes = [...per]})
     console.log(this.personajes)
-    
-    //console.log("idMax", maxId);
     this.page_number = 1
   }
 
-
-  
   setIsSearching(searchValue: string|null){
 
     if(searchValue !== null)
     this.isSearching = searchValue.length >= 3;
   }
   
-
-  
-
   handlePage(e: PageEvent){
     this.page_size = e.pageSize
     this.page_number = e.pageIndex + 1
   }
-
   
 }

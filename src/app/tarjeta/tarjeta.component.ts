@@ -10,26 +10,23 @@ import { EditarPersonajeComponent } from '../editar-personaje/editar-personaje.c
   styleUrls: ['./tarjeta.component.scss']
 })
 
-
-
 export class TarjetaComponent {
  @Input() personaje!: Personaje;
  
  constructor(private readonly dataSVc: DataService, public dialogo: MatDialog) { } 
 
-
-
- abrirDialogo(){
-    
+ abrirDialogo(){   
     
   const dialogoRef = this.dialogo.open(EditarPersonajeComponent,{
     width: '350px',
     data: {personaje: this.personaje }});
 
-    dialogoRef.afterClosed().subscribe(res =>{console.log(res); window.location.reload();})
+    dialogoRef.afterClosed().subscribe(res =>{
+      if(res){
+        window.location.reload();
+      }
+    })
 }
-
-
 
  clickDelete(){
     
@@ -39,7 +36,6 @@ export class TarjetaComponent {
   },
   (error) => {
     console.log(error);
-  });;
-  
+  });  
  }
 }

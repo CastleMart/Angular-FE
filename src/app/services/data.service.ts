@@ -11,7 +11,6 @@ export interface Personaje {
   Img: string|null;
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -31,11 +30,7 @@ export class DataService {
   }
 
   actualizarPersonaje(personaje: Personaje): Observable<any>{
-    const body = {idPersonaje: personaje.idPersonaje ,Nombre: personaje.Nombre, Fuerza:personaje.Fuerza, Defenza:personaje.Defenza, Img : personaje.Img};
-    
-    
-    console.log(body)
-    
+    const body = {idPersonaje: personaje.idPersonaje ,Nombre: personaje.Nombre, Fuerza:personaje.Fuerza, Defenza:personaje.Defenza, Img : personaje.Img};  
   
     const httpOptions = {
       headers: new HttpHeaders({ 
@@ -46,13 +41,7 @@ export class DataService {
       
       })
     };
-
-    
     return this.http.put<any>(this.API,body)
-
-    //let respuesta =  this.http.put(this.API,body);
-    //console.log(respuesta)
-    //return respuesta
   }
 
   borrarPersonaje(id: String):  Observable<void>{
